@@ -51,6 +51,10 @@ artifacts/
 *.obj
 *.pch
 *.pdb
+!gtest/lib/gtestd.pdb
+!gtest/lib/gtest-x64d.pdb
+!gtest/lib/gtest-mdd.pdb
+!gtest/lib/gtest-md-x64d.pdb
 *.pgc
 *.pgd
 *.rsp

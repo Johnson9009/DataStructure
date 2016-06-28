@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DataStructure", "DataStructure\DataStructure.vcxproj", "{840618DC-8523-49EE-B6C0-1B05D85B5AD6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "data_structure", "data_structure\data_structure.vcxproj", "{840618DC-8523-49EE-B6C0-1B05D85B5AD6}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DataStructureUnitTest", "DataStructureUnitTest\DataStructureUnitTest.vcxproj", "{20F3D8B1-CFCD-4B3D-AD2C-1866905F868E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "data_structure_test", "data_structure_test\data_structure_test.vcxproj", "{20F3D8B1-CFCD-4B3D-AD2C-1866905F868E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,7 +19,6 @@ Global
 		{840618DC-8523-49EE-B6C0-1B05D85B5AD6}.Debug|x64.Build.0 = Debug|x64
 		{840618DC-8523-49EE-B6C0-1B05D85B5AD6}.Debug|x86.ActiveCfg = Debug|Win32
 		{840618DC-8523-49EE-B6C0-1B05D85B5AD6}.Debug|x86.Build.0 = Debug|Win32
-		{840618DC-8523-49EE-B6C0-1B05D85B5AD6}.Debug|x86.Deploy.0 = Debug|Win32
 		{840618DC-8523-49EE-B6C0-1B05D85B5AD6}.Release|x64.ActiveCfg = Release|x64
 		{840618DC-8523-49EE-B6C0-1B05D85B5AD6}.Release|x64.Build.0 = Release|x64
 		{840618DC-8523-49EE-B6C0-1B05D85B5AD6}.Release|x86.ActiveCfg = Release|Win32
@@ -28,7 +27,6 @@ Global
 		{20F3D8B1-CFCD-4B3D-AD2C-1866905F868E}.Debug|x64.Build.0 = Debug|x64
 		{20F3D8B1-CFCD-4B3D-AD2C-1866905F868E}.Debug|x86.ActiveCfg = Debug|Win32
 		{20F3D8B1-CFCD-4B3D-AD2C-1866905F868E}.Debug|x86.Build.0 = Debug|Win32
-		{20F3D8B1-CFCD-4B3D-AD2C-1866905F868E}.Debug|x86.Deploy.0 = Debug|Win32
 		{20F3D8B1-CFCD-4B3D-AD2C-1866905F868E}.Release|x64.ActiveCfg = Release|x64
 		{20F3D8B1-CFCD-4B3D-AD2C-1866905F868E}.Release|x64.Build.0 = Release|x64
 		{20F3D8B1-CFCD-4B3D-AD2C-1866905F868E}.Release|x86.ActiveCfg = Release|Win32

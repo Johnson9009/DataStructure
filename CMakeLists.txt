@@ -10,7 +10,7 @@ cmake_minimum_required(VERSION 2.6.2)
 project(data_structure_and_algorithm CXX C)
 
 # Define helper functions and macros used by Data Structure and Algorithm.
-include(cmake/internal_utils.cmake)
+include(utils/internal_utils.cmake)
 fix_default_compiler_settings()  # Defined in internal_utils.cmake.
 
 # Add Google Test as a subproject of our project.

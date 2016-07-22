@@ -20,6 +20,7 @@ x86/
 bld/
 [Bb]in/
 [Oo]bj/
+build/
 
 # Visual Studio 2015 cache/options directory
 .vs/
@@ -51,10 +52,6 @@ artifacts/
 *.obj
 *.pch
 *.pdb
-!gtest/lib/gtestd.pdb
-!gtest/lib/gtest-x64d.pdb
-!gtest/lib/gtest-mdd.pdb
-!gtest/lib/gtest-md-x64d.pdb
 *.pgc
 *.pgd
 *.rsp

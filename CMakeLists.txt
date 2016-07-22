@@ -1,12 +1,27 @@
-###############################################################################
+# Copyright (c) 2016 Johnson9009. All rights reserved.
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+# associated documentation files(the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge, publish, distribute,
+# sublicense, and / or sell copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions :
+#
+# The above copyright notice and this permission notice shall be included in all copies or
+# substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+# NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+# DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT
+# OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+#
 # CMake build script for Data Structure and Algorithm.
 #
-# This project use Google Test as unit test framework, Our use Google C++ Style
-# Guide in this project, in order to checking source files automatic, a custom
-# target be created to call the lint tool "cpplint.py".
+# This project use Google Test as unit test framework, Our use Google C++ Style Guide in this
+# project, in order to checking source files automatic, a custom target be created to call the lint
+# tool "cpplint.py".
 
 cmake_minimum_required(VERSION 2.6.2)
-
 project(data_structure_and_algorithm CXX C)
 
 # Define helper functions and macros used by Data Structure and Algorithm.
@@ -20,17 +35,19 @@ include_directories(gtest/include)
 # Our project header files location.
 include_directories(include)
 
-# In our project, we organize all source files of each target through cmake
-# script files recursive including. Every folder with source files in it,
-# should have a cmake script file "source.cmake", and each cmake script file
-# include this file(CMakeLists.txt) should contain its all sub folder's
-# "source.cmake" by "include" command.
+# In our project, we organize all source files of each target through cmake script files recursive
+# including. Every directory with source files in it, must have a cmake script file "source.cmake",
+# and each cmake script file(this file(CMakeLists.txt) no exception) should contain its all sub
+# directory's "source.cmake" by "include" command.
 include(src/source.cmake)
 include(test/source.cmake)
 
-# Because variable "UNIT_TEST_SOURCES" is defined in above cmake script files,
-# so we must lay all "add_executable" commands bellow to any "include" command
-# which aim to include "source.cmake". 
+# Because source file list of each target, such as "UNIT_TEST_SOURCES", is defined in above cmake
+# script files, so we must lay all commands which need source file list, such as "add_executable",
+# bellow to any "include" command which aim to include "source.cmake".
 add_executable(data_structure_and_algorithm_test ${UNIT_TEST_SOURCES})
 target_link_libraries(data_structure_and_algorithm_test gtest_main)
 
+add_style_check(data_structure_and_algorithm_test
+  EXCLUDE_DIRS gtest
+)

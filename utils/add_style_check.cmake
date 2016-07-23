@@ -108,12 +108,18 @@ function(add_style_check target_name)
     INCLUDE_DIRS  ${include_dirs}
   )
 
-  # Strip the white characters and remove duplicate items.
+  # Strip white characters and assert the exist of each header file, then remove duplicate items.
   foreach(header_file ${raw_header_files})
     string(STRIP ${header_file} header_file)
-    set(header_files ${header_files} ${header_file})
+    if (NOT EXISTS ${header_file})
+      message(FATAL_ERROR "Can't find the header file: \"${header_file}\", function\
+      \"add_style_check\" find it is used by target \"${target_name}\"!")
+    else()
+      set(header_files ${header_files} ${header_file})
+    endif()
   endforeach()
   list(REMOVE_DUPLICATES header_files)
+  
                 # message("header_files is ${header_files}") # Debug use.
   # Remove the files that under exclude directories or in exclude file list.
   set(files ${src_files} ${header_files})
@@ -247,9 +253,16 @@ function(get_header_files_by_compiler header_files compiler compiler_id)
   set(include_dir_flag "-I")
   set(list_header_files_flag "-MM")
   if ("${compiler_id}" STREQUAL "MSVC")
-    set(definition_flag "/D")
-    set(include_dir_flag "/I")
-    set(list_header_files_flag "/showIncludes")
+    if ("$ENV{INCLUDE}" STREQUAL "")
+      message(FATAL_ERROR "To use the function \"add_style_check\" with Visual C++, cmake must be\
+        run from a shell that can use the compiler cl from the command line, and the \"INCLUDE\"\
+        environment variable must be set correctly. To fix this problem, run cmake from the Visual \
+        Studio Command Prompt (vcvarsall.bat).")
+    else()
+      set(definition_flag "/D")
+      set(include_dir_flag "/I")
+      set(list_header_files_flag "/showIncludes")
+    endif()
   elseif (NOT "${compiler_id}" STREQUAL "GNU")
     message(FATAL_ERROR "Can't support your compiler now, only MSVC, GNU compiler can be used!")
   endif()

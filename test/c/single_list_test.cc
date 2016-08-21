@@ -15,4 +15,21 @@
 // DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#include "data_structure/list.h"
+#include "c/single_list.h"
+
+#include "gtest/gtest.h"
+
+// POD(Plain Old Data)
+TEST(SingleList, PodNodeInitial) {
+  /*Node<int> pod_node;
+
+  ASSERT_EQ(0, pod_node.value);
+  ASSERT_EQ(NULL, pod_node.next);*/
+}
+
+TEST(SingleList, ClassNodeInitial) {
+  /*Node<std::string> class_node;
+
+  ASSERT_EQ("", class_node.value);
+  ASSERT_EQ(NULL, class_node.next);*/
+}

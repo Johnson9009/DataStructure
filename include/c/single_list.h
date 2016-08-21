@@ -15,20 +15,23 @@
 // DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#include "data_structure/list.h"
+#ifndef C_SINGLE_LIST_H_
+#define C_SINGLE_LIST_H_
 
-#include "gtest/gtest.h"
+typedef struct SingleListNode * Sl_Iterator;
+typedef struct SingleList * Sl_ListPtr;
 
-// POD(Plain Old Data)
-TEST(NodeUnitTest, ValueInitialOfPodNode) {
-  Node<int> pod_node;
+typedef enum SingleListResult {
+  Sl_kSuccess,
+  Sl_kBadAlloc
+}Sl_Result;
 
-  ASSERT_EQ(0, pod_node.value);
-  ASSERT_EQ(NULL, pod_node.next);
-}
-TEST(NodeUnitTest, ValueInitialOfClassNode) {
-  Node<std::string> class_node;
+Sl_Result Sl_ListCreate(Sl_ListPtr *list_ptr);
+Sl_Result Sl_PushBack(Sl_ListPtr list_ptr, void *content);
+Sl_Iterator Sl_Begin(const Sl_ListPtr list_ptr);
+Sl_Iterator Sl_End(const Sl_ListPtr list_ptr);
+void Sl_Forward(Sl_Iterator *iterator);
+void * Sl_GetContent(Sl_Iterator iterator);
+void Sl_ListDestroy(Sl_ListPtr *list_ptr);
 
-  ASSERT_EQ("", class_node.value);
-  ASSERT_EQ(NULL, class_node.next);
-}
+#endif  // C_SINGLE_LIST_H_

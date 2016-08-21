@@ -20,6 +20,5 @@
 # give a description of the relationship between targets and source files that inside current
 # directory.
 
-set(UNIT_TEST_SOURCES ${UNIT_TEST_SOURCES}
-    ${CMAKE_CURRENT_LIST_DIR}/list_test.cc
-)
+include(${CMAKE_CURRENT_LIST_DIR}/c/source.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/cxx/source.cmake)

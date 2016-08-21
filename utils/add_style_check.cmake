@@ -29,8 +29,8 @@ endif()
 #   [EXCLUDE_FILES <exclude_file> [<exclude_file> ...]]
 # )
 # This function can get all header files used by source files of target automatically, default
-# files that need to be check include all source files and header files of this target, system
-# header files will be exclude directly.
+# files that need to be check is comprised of all source files and header files of this target,
+# system header files will be exclude directly.
 function(add_style_check target_name)
   assert_cpplint_available()
   # Parse arguments to corresponding varialbes.
@@ -136,13 +136,10 @@ function(add_style_check target_name)
     list(REMOVE_ITEM files ${exclude_file})
   endforeach()
                 # message("files is ${files}") # Debug use.
-  add_custom_target(${target_name}_style_check 
-    COMMAND "${PYTHON_EXECUTABLE}" "${CPPLINT_PY}" --linelength=100 --root=include ${files} 
-    DEPENDS ${files}
+  add_custom_command(TARGET ${target_name} PRE_LINK
+    COMMAND "${PYTHON_EXECUTABLE}" "${CPPLINT_PY}" --linelength=100 --root=include ${files}
     COMMENT "Linting ${target_name}"
     VERBATIM)
-
-  add_dependencies(${target_name} ${target_name}_style_check)
 endfunction()
 
 

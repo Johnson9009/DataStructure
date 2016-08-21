@@ -20,5 +20,6 @@
 # give a description of the relationship between targets and source files that inside current
 # directory.
 
-include(${CMAKE_CURRENT_LIST_DIR}/c/source.cmake)
-include(${CMAKE_CURRENT_LIST_DIR}/cxx/source.cmake)
+set(CXX_DATA_STRUCTURE_TEST_SRCS ${CXX_DATA_STRUCTURE_TEST_SRCS}
+    ${CMAKE_CURRENT_LIST_DIR}/single_list_test.cc
+)

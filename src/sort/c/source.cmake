@@ -20,7 +20,6 @@
 # give a description of the relationship between targets and source files that inside current
 # directory.
 
-set(CXX_DATA_STRUCTURE_TEST_SRCS ${CXX_DATA_STRUCTURE_TEST_SRCS}
-    ${CMAKE_CURRENT_LIST_DIR}/single_list_test.cc
-    ${CMAKE_CURRENT_LIST_DIR}/sort_test.cc
+set(C_DATA_STRUCTURE_TEST_SRCS ${C_DATA_STRUCTURE_TEST_SRCS}
+    ${CMAKE_CURRENT_LIST_DIR}/quick.c
 )

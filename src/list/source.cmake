@@ -14,12 +14,10 @@
 # NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
 # DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT
 # OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-#
+
 # Every directory with source files in it, must have this cmake script file, at the top of this file
 # must contain all its sub directory's "source.cmake" by "include" command. This file only need to
 # give a description of the relationship between targets and source files that inside current
 # directory.
 
-set(C_DATA_STRUCTURE_TEST_SRCS ${C_DATA_STRUCTURE_TEST_SRCS}
-    ${CMAKE_CURRENT_LIST_DIR}/single_list.c
-)
+include(${CMAKE_CURRENT_LIST_DIR}/c/source.cmake)

@@ -14,11 +14,11 @@
 # NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
 # DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT
 # OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-#
+
 # Every directory with source files in it, must have this cmake script file, at the top of this file
 # must contain all its sub directory's "source.cmake" by "include" command. This file only need to
 # give a description of the relationship between targets and source files that inside current
 # directory.
 
-include(${CMAKE_CURRENT_LIST_DIR}/c/source.cmake)
-include(${CMAKE_CURRENT_LIST_DIR}/cxx/source.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/list/source.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/sort/source.cmake)

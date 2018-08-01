@@ -21,7 +21,7 @@ include(CMakeParseArguments)
 include(${CMAKE_CURRENT_LIST_DIR}/add_style_check.cmake)
 
 # Tweaks CMake's default compiler/linker settings to suit needs of Data Structure and Algorithm.
-# This macro is modified from Google Test. 
+# This macro is modified from Google Test.
 #
 # This must be a macro(), as inside a function string() can only update variables in the function
 # scope.

@@ -14,14 +14,14 @@
 # NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
 # DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT
 # OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-#
-# CMake build script for Data Structure and Algorithm.
-#
-# This project use Google Test as unit test framework, Our use Google C++ Style Guide in this
-# project, in order to checking source files automatic, a custom target be created to call the lint
-# tool "cpplint.py".
 
-cmake_minimum_required(VERSION 2.6.2)
+# The Top CMake Script
+#
+# This project use Google Test as unit test framework, the code of this project follow Google C++
+# Style Guide, in order to checking source files automatically, a custom target is created to call
+# the lint tool "cpplint.py".
+
+cmake_minimum_required(VERSION 3.1.3)
 project(data_structure_algorithm CXX C)
 
 # Define helper functions and macros used by Data Structure and Algorithm.
@@ -46,6 +46,7 @@ include(${CMAKE_CURRENT_LIST_DIR}/test/source.cmake)
 # script files, so we must lay all commands which need source file list, such as "add_executable",
 # bellow to any "include" command which aim to include "source.cmake".
 add_executable(cxx_data_structure_test ${CXX_DATA_STRUCTURE_TEST_SRCS})
+target_compile_features(cxx_data_structure_test PRIVATE cxx_std_11)
 target_link_libraries(cxx_data_structure_test gtest_main)
 add_style_check(cxx_data_structure_test
   EXCLUDE_DIRS gtest

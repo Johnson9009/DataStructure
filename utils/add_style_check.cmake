@@ -260,8 +260,10 @@ function(get_header_files_by_compiler header_files compiler compiler_id)
       set(include_dir_flag "/I")
       set(list_header_files_flag "/showIncludes")
     endif()
-  elseif (NOT "${compiler_id}" STREQUAL "GNU")
-    message(FATAL_ERROR "Can't support your compiler now, only MSVC, GNU compiler can be used!")
+  elseif (NOT (("${compiler_id}" STREQUAL "Clang") OR
+               ("${compiler_id}" STREQUAL "AppleClang") OR
+               ("${compiler_id}" STREQUAL "GNU")))
+    message(FATAL_ERROR "Can't support your compiler ${compiler_id} now, only MSVC, Clang, AppleClang, GNU compiler can be used!")
   endif()
 
   # Add compiler flags for each of compile definitions and include directories.
